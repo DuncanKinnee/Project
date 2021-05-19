@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Source Serif Pro', serif;
+  background-image: url("images/bg3.jpg");
+}
+
+@font-face {
+  font-family: ASL;
+  src: url(fonts/font_asl.ttf);
+}
+
+.header {
+  padding: .25em;
+  margin: .25em;
+  margin-bottom: 0em;
+  font-size: 5em;
+  text-align: center;
+  color: #dcedfc;
+  text-shadow: 2px 2px 5px black;
+}
+
+.headASL {
+  font-family: ASL;
+  font-size: 2.5em;
+}
+
+.container {
+  display: flex;
+}
+
+.words {
+  padding: 1em;
+  width: 60%;
+  margin: .75em;
+  margin-right: 0em;
+  color: #4dc0f0;
+}
+
+.talkText {
+  font-size: 2em;
+}
+
+.pText {
+  border-bottom: 2px #AAABB8 solid;
+}
+
+.box {
+  padding: 1em;
+  width: 35%;
+  margin: .75em;
+  margin-left: 0em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+.wordCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px #AAABB8 solid;
+  border-radius: 15px;
+  padding: .25em;
+  word-wrap: normal;
+  color: #4dc0f0;
+  height:  90px;
+  width: 150px;
+  z-index: 1;
+  transition: transform .3s;
+  text-shadow: 3px 3px 10px black;
+  overflow: hidden;
+}
+
+.wordCard:hover {
+  background-color: #25274D;
+  color: #dcedfc;
+  z-index: 3;
+  transform: scale(2);
+  font-family: ASL;
+  font-size: 4em;
+  margin: 0px;
+  width: min-content;
+  height: min-content
+  min-width: 150px;
+  align-content: center;
+  border: 2px #AAABB8 solid;
+  border-radius: 20px;
+  text-shadow: 3px 3px 2px black;
+}
+
+.wordCard:hover .countStyle {
+  visibility: hidden;
+}
