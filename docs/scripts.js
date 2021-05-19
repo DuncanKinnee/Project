@@ -11,7 +11,7 @@ let wordsList = [];
 
 //used to create the div boxes that hold the uniqueResults and word counts from the speech recognition
 let card = document.createElement('div');
-const box = document.querySelector('.box')
+const box = document.querySelector('.box');
 card.className = 'wordCard';
 box.appendChild(card);
 
@@ -86,7 +86,7 @@ function displayUniqueWords() {
   uniWords.forEach((item, index) => {
     card = document.createElement('div');
     card.className = 'wordCard';
-    box.appendChild(card)
+    box.appendChild(card);
 
     card.innerHTML = '<span class="wordStyle">'  +item  + '</span>' + '<span class="countStyle">' +  ' : ' + wordCount(wordsList, item)+ '</span>';//sets P element that contains the arrays
     console.log( item + ' appears: ' + wordCount(wordsList, item) + " times"); //console logs the results for double checking
