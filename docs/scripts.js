@@ -13,7 +13,7 @@ let wordsList = [];
 let card = document.createElement('div');
 const box = document.querySelector('.box');
 card.className = 'wordCard';
-box.appendChild(card);
+// box.appendChild(card);
 
 
 //This section creates paragraphs to hold the output of the speech recognition
