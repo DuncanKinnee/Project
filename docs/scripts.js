@@ -11,6 +11,7 @@ let wordsList = [];
 
 //used to create the div boxes that hold the uniqueResults and word counts from the speech recognition
 let card = document.createElement('div');
+const box = document.querySelector('.box')
 card.className = 'wordCard';
 box.appendChild(card);
 
