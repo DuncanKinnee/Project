@@ -9,15 +9,10 @@ let talk = [];
 let splitter = [];
 let wordsList = [];
 
-//This is used to create paragraph elements on the index page so that they can display the unique words and word counts.
-let r = document.createElement('p');
-r.className = 'uniRes';
-const box = document.querySelector('.box');
-// box.appendChild(r);
-
+//used to create the div boxes that hold the uniqueResults and word counts from the speech recognition
 let card = document.createElement('div');
 card.className = 'wordCard';
-// box.appendChild(card)
+
 
 
 //This section creates paragraphs to hold the output of the speech recognition
@@ -35,17 +30,17 @@ recognition.addEventListener('result', e => {
     .map(result => result.transcript)
     .join('');
 
-    // const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+
     p.innerHTML = '<span class="pText">' + transcript + '</span>' + '.';
 
-    //checks if you are done talking and puts the speech into the P element
+    //checks if you are done talking and adds the results to a P element. Then begins the process of breaking apart the speech and counting each word and its number of uses.
     if (e.results[0].isFinal) {
       p = document.createElement('p');
       p.className = 'talkText';
       words.appendChild(p);
       talk.push(transcript.toLowerCase());
-      splitArray(); // remove?
-      displayUniqueWords(); // remove?
+      splitArray();
+      displayUniqueWords();
     }
 });
 
@@ -55,7 +50,7 @@ recognition.start();
 
 // takes the speech results and breaks them into individual words, pushes them into a new array.
 function splitArray() {
-  wordsList = [];
+  wordsList = []; //empties array each time a speech event ends
   for (var i = 0; i < talk.length; i++) {
     splitter = talk[i];
     splitter = splitter.split(' ');
@@ -67,12 +62,10 @@ function splitArray() {
 
 };
 
-
 //returns a unique list of words from the arrays. this is used for counting
 const uniWords = wordsList.filter((value,index,array) => {
   return array.indexOf(value) === index;
 });
-
 
 //gives the count of how many times each word apears in the arrays
 function wordCount(array, value) {
@@ -82,9 +75,9 @@ function wordCount(array, value) {
 // checks unique word count
 function displayUniqueWords() {
   const uniqueResults = document.getElementById('uniqueWords');
-  uniqueResults.innerHTML = ' ';
+  uniqueResults.innerHTML = ' '; //clears the half of the html page that holds the uniqueResults of each speech event. this is to prevent duplication of words and results
 
-
+  //filters the wordlist array and only take unique values
   const uniWords = wordsList.filter((value,index,array) => {
     return array.indexOf(value) === index;
   });
@@ -93,9 +86,7 @@ function displayUniqueWords() {
     card = document.createElement('div');
     card.className = 'wordCard';
     box.appendChild(card)
-    // r = document.createElement('p');//creates a P element that contains the arrays
-    // r.className = 'uniRes';  //appends the P element to the div .box
-    // card.appendChild(r);
+
     card.innerHTML = '<span class="wordStyle">'  +item  + '</span>' + '<span class="countStyle">' +  ' : ' + wordCount(wordsList, item)+ '</span>';//sets P element that contains the arrays
     console.log( item + ' appears: ' + wordCount(wordsList, item) + " times"); //console logs the results for double checking
   });
