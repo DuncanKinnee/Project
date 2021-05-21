@@ -88,7 +88,7 @@ function displayUniqueWords() {
     card.className = 'wordCard';
     box.appendChild(card);
 
-    card.innerHTML = '<span class="wordStyle">'  +item  + '</span>' + '<span class="countStyle">' +  ' : ' + wordCount(wordsList, item)+ '</span>';//sets P element that contains the arrays
+    card.innerHTML = '<span class="wordStyle">'  +item  + '</span>' + '<span class="countStyle">' +  ' : ' + wordCount(wordsList, item)+ '</span>';//sets Div element that contains the arrays
     console.log( item + ' appears: ' + wordCount(wordsList, item) + " times"); //console logs the results for double checking
   });
 }
